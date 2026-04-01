@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Smart Helmet</string>
+
+    <!-- Activity titles -->
+    <string name="title_scan">BLE Device Scanner</string>
+    <string name="title_dashboard">Helmet Device</string>
+
+    <!-- Scan screen -->
+    <string name="btn_scan">Scan</string>
+    <string name="btn_stop_scan">Stop Scan</string>
+    <string name="no_devices_found">No devices found.\nTap Scan to search.</string>
+
+    <!-- Dashboard screen – buttons -->
+    <string name="btn_read">Read</string>
+    <string name="btn_stop_read">Stop</string>
+    <string name="btn_disconnect">Disconnect</string>
+    <string name="btn_back">Back</string>
+
+    <!-- Section headers -->
+    <string name="label_device">Helmet Device</string>
+    <string name="section_sensors">Orientation &amp; Motion</string>
+    <string name="section_capacitive">Capacitive Sensors</string>
+    <string name="section_tof">ToF Distance Sensors</string>
+    <string name="section_controls">Read Interval</string>
+
+    <!-- Sensor labels -->
+    <string name="label_upright">Helmet Upright</string>
+    <string name="label_accel">Accelerometer (X, Y, Z)</string>
+    <string name="label_motion">Bike Motion</string>
+    <string name="label_strap">Strap Status</string>
+    <string name="label_crown_cap">Crown Capacitive</string>
+    <string name="label_forehead_cap">Forehead Capacitive</string>
+    <string name="label_cap_summary">Capacitive Summary</string>
+    <string name="label_tof_left">Left Distance</string>
+    <string name="label_tof_right">Right Distance</string>
+
+    <!-- Sensor values -->
+    <string name="value_true">TRUE</string>
+    <string name="value_false">FALSE</string>
+    <string name="value_moving">MOVING</string>
+    <string name="value_stopped">STOPPED</string>
+    <string name="value_open">OPEN</string>
+    <string name="value_closed">CLOSED</string>
+    <string name="value_unavailable">—</string>
+    <string name="placeholder_value">—</string>
+
+    <!-- Status labels -->
+    <string name="status_idle">Idle</string>
+    <string name="status_scanning">Scanning…</string>
+    <string name="status_connecting">Connecting…</string>
+    <string name="status_connected">Connected</string>
+    <string name="status_reading">Reading…</string>
+    <string name="status_disconnected">Disconnected</string>
+    <string name="status_error">Error</string>
+
+    <!-- Interval -->
+    <string name="interval_label">Read interval: %d s</string>
+    <string name="interval_label_default">Read interval: 1 s</string>
+</resources>
