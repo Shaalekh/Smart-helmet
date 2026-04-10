@@ -1,179 +1,140 @@
 package com.smarthelmet.ble
 
 import android.Manifest
-import android.bluetooth.BluetoothAdapter
+import android.annotation.SuppressLint
 import android.bluetooth.BluetoothDevice
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.smarthelmet.ble.databinding.ActivityScanBinding
+import com.smarthelmet.ble.databinding.ItemDeviceBinding
 
-/**
- * Screen 1 – BLE Scanner
- *
- * Displays a list of nearby BLE devices (Name + MAC).
- * Tapping a device navigates to [DashboardActivity].
- */
 class ScanActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityScanBinding
     private lateinit var bleManager: BleManager
-    private lateinit var deviceAdapter: DeviceAdapter
+    private val devices = mutableListOf<BluetoothDevice>()
+    private val adapter = DeviceAdapter { device ->
+        val intent = Intent(this, DashboardActivity::class.java).apply {
+            putExtra(BleConstants.EXTRA_DEVICE_ADDRESS, device.address)
+            @SuppressLint("MissingPermission")
+            val name = device.name ?: "Unknown"
+            putExtra(BleConstants.EXTRA_DEVICE_NAME, name)
+        }
+        startActivity(intent)
+    }
 
-    // ── Permission launcher ───────────────────────────────────────────────────
-
-    private val permissionLauncher = registerForActivityResult(
+    private val requestPermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestMultiplePermissions()
-    ) { grants ->
-        val allGranted = grants.values.all { it }
-        if (allGranted) {
-            startBleScan()
+    ) { permissions ->
+        if (permissions.values.all { it }) {
+            bleManager.startScan()
         } else {
-            Toast.makeText(
-                this,
-                "Bluetooth permissions are required to scan for devices.",
-                Toast.LENGTH_LONG
-            ).show()
+            Toast.makeText(this, "Permissions required for BLE scan", Toast.LENGTH_SHORT).show()
         }
     }
-
-    private val enableBluetoothLauncher = registerForActivityResult(
-        ActivityResultContracts.StartActivityForResult()
-    ) {
-        if (bleManager.isBluetoothEnabled()) {
-            checkPermissionsAndScan()
-        } else {
-            Toast.makeText(this, "Bluetooth must be enabled to use this app.", Toast.LENGTH_LONG).show()
-        }
-    }
-
-    // ── Lifecycle ─────────────────────────────────────────────────────────────
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityScanBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        bleManager = BleManager(applicationContext)
+        bleManager = BleManager(this)
+        
+        binding.recyclerDevices.layoutManager = LinearLayoutManager(this)
+        binding.recyclerDevices.adapter = adapter
 
-        setupRecyclerView()
-        setupBleCallbacks()
-        setupButtons()
-    }
-
-    override fun onDestroy() {
-        bleManager.stopScan()
-        super.onDestroy()
-    }
-
-    // ── Setup ─────────────────────────────────────────────────────────────────
-
-    private fun setupRecyclerView() {
-        deviceAdapter = DeviceAdapter { device -> onDeviceSelected(device) }
-        binding.recyclerDevices.apply {
-            layoutManager = LinearLayoutManager(this@ScanActivity)
-            adapter = deviceAdapter
-            addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
+        binding.btnScan.setOnClickListener {
+            if (bleManager.state == BleState.SCANNING) {
+                bleManager.stopScan()
+            } else {
+                devices.clear()
+                adapter.notifyDataSetChanged()
+                binding.tvNoDevices.visibility = View.VISIBLE
+                checkPermissionsAndScan()
+            }
         }
-    }
 
-    private fun setupBleCallbacks() {
         bleManager.onDeviceFound = { device ->
-            deviceAdapter.addDevice(device)
-            binding.tvNoDevices.visibility = View.GONE
+            if (!devices.any { it.address == device.address }) {
+                devices.add(device)
+                adapter.notifyItemInserted(devices.size - 1)
+                binding.tvNoDevices.visibility = View.GONE
+            }
         }
 
         bleManager.onStateChanged = { state ->
             when (state) {
                 BleState.SCANNING -> {
-                    binding.btnScan.text = getString(R.string.btn_stop_scan)
-                    binding.progressScan.visibility = View.VISIBLE
                     binding.tvStatus.text = getString(R.string.status_scanning)
+                    binding.progressScan.visibility = View.VISIBLE
+                    binding.btnScan.text = getString(R.string.btn_stop_scan)
+                }
+                BleState.ERROR -> {
+                    binding.tvStatus.text = getString(R.string.status_error)
+                    binding.progressScan.visibility = View.GONE
+                    binding.btnScan.text = getString(R.string.btn_scan)
                 }
                 else -> {
-                    binding.btnScan.text = getString(R.string.btn_scan)
-                    binding.progressScan.visibility = View.GONE
                     binding.tvStatus.text = getString(R.string.status_idle)
+                    binding.progressScan.visibility = View.GONE
+                    binding.btnScan.text = getString(R.string.btn_scan)
                 }
             }
         }
 
-        bleManager.onError = { message ->
-            showError(message)
+        bleManager.onError = { errorMsg ->
+            Toast.makeText(this, errorMsg, Toast.LENGTH_SHORT).show()
         }
     }
-
-    private fun setupButtons() {
-        binding.btnScan.setOnClickListener {
-            if (bleManager.state == BleState.SCANNING) {
-                bleManager.stopScan()
-            } else {
-                deviceAdapter.clear()
-                binding.tvNoDevices.visibility = View.VISIBLE
-                checkPermissionsAndScan()
-            }
-        }
-    }
-
-    // ── Scan flow ─────────────────────────────────────────────────────────────
 
     private fun checkPermissionsAndScan() {
-        if (!bleManager.isBluetoothEnabled()) {
-            enableBluetoothLauncher.launch(Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE))
-            return
-        }
-        val missing = requiredPermissions().filter {
-            ContextCompat.checkSelfPermission(this, it) != PackageManager.PERMISSION_GRANTED
-        }
-        if (missing.isEmpty()) {
-            startBleScan()
+        val permissions = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            arrayOf(Manifest.permission.BLUETOOTH_SCAN, Manifest.permission.BLUETOOTH_CONNECT)
         } else {
-            permissionLauncher.launch(missing.toTypedArray())
+            arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION)
         }
-    }
 
-    private fun startBleScan() {
-        bleManager.startScan()
-    }
-
-    private fun requiredPermissions(): List<String> = buildList {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            add(Manifest.permission.BLUETOOTH_SCAN)
-            add(Manifest.permission.BLUETOOTH_CONNECT)
+        if (permissions.all { ContextCompat.checkSelfPermission(this, it) == PackageManager.PERMISSION_GRANTED }) {
+            bleManager.startScan()
         } else {
-            add(Manifest.permission.ACCESS_FINE_LOCATION)
+            requestPermissionLauncher.launch(permissions)
         }
     }
 
-    // ── Navigation ────────────────────────────────────────────────────────────
-
-    private fun onDeviceSelected(device: BluetoothDevice) {
+    override fun onDestroy() {
+        super.onDestroy()
         bleManager.stopScan()
-        @Suppress("MissingPermission")
-        val deviceName = runCatching { device.name }.getOrNull() ?: "Unknown Device"
-        val intent = Intent(this, DashboardActivity::class.java).apply {
-            putExtra(BleConstants.EXTRA_DEVICE_ADDRESS, device.address)
-            putExtra(BleConstants.EXTRA_DEVICE_NAME, deviceName)
-        }
-        startActivity(intent)
     }
 
-    // ── Error display ─────────────────────────────────────────────────────────
+    inner class DeviceAdapter(private val onClick: (BluetoothDevice) -> Unit) : RecyclerView.Adapter<DeviceAdapter.ViewHolder>() {
+        inner class ViewHolder(val itemBinding: ItemDeviceBinding) : RecyclerView.ViewHolder(itemBinding.root) {
+            @SuppressLint("MissingPermission")
+            fun bind(device: BluetoothDevice) {
+                itemBinding.tvDeviceName.text = device.name ?: "Unknown Device"
+                itemBinding.tvDeviceAddress.text = device.address
+                itemBinding.root.setOnClickListener { onClick(device) }
+            }
+        }
 
-    private fun showError(message: String) {
-        AlertDialog.Builder(this)
-            .setTitle("BLE Error")
-            .setMessage(message)
-            .setPositiveButton("OK", null)
-            .show()
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+            return ViewHolder(ItemDeviceBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+        }
+
+        override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+            holder.bind(devices[position])
+        }
+
+        override fun getItemCount() = devices.size
     }
 }
