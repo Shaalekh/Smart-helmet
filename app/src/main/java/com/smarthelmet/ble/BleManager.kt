@@ -247,20 +247,20 @@ class BleManager(private val context: Context) {
             return null
         }
 
-        fun readChar(uuid: UUID): ByteArray? {
+        fun readChar(uuid: UUID): Boolean {
             val char = service.getCharacteristic(uuid) ?: run {
                 Log.w(TAG, "Characteristic $uuid not found in service")
-                return null
+                return false
             }
             if (!currentGatt.readCharacteristic(char)) {
                 Log.w(TAG, "readCharacteristic returned false for $uuid")
-                return null
+                return false
             }
-            return null // result arrives in callback
+            return true // request sent, result arrives in callback
         }
 
         suspend fun readSequential(uuid: UUID): ByteArray? {
-            readChar(uuid)
+            if (!readChar(uuid)) return null
             return withTimeoutOrNull(3000L) { readChannel.receive() }
         }
 

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background">#F5F7FA</color>
+    <color name="colorAccent">#00897B</color>
+    <color name="colorError">#C62828</color>
+    <color name="colorOnPrimary">#FFFFFF</color>
+    <color name="colorPrimary">#1565C0</color>
+    <color name="colorPrimaryVariant">#003c8f</color>
+    <color name="divider">#E0E0E0</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="textPrimary">#212121</color>
+    <color name="textSecondary">#757575</color>
+    <color name="white">#FFFFFF</color>
+    <string name="app_name">Smart Helmet</string>
+    <string name="btn_back">Back</string>
+    <string name="btn_disconnect">Disconnect</string>
+    <string name="btn_read">Read</string>
+    <string name="btn_scan">Scan</string>
+    <string name="btn_stop_read">Stop</string>
+    <string name="btn_stop_scan">Stop Scan</string>
+    <string name="interval_label">Read interval: %d s</string>
+    <string name="interval_label_default">Read interval: 1 s</string>
+    <string name="label_accel">Accelerometer (X, Y, Z)</string>
+    <string name="label_cap_summary">Capacitive Summary</string>
+    <string name="label_crown_cap">Crown Capacitive</string>
+    <string name="label_device">Helmet Device</string>
+    <string name="label_forehead_cap">Forehead Capacitive</string>
+    <string name="label_motion">Bike Motion</string>
+    <string name="label_strap">Strap Status</string>
+    <string name="label_tof_left">Left Distance</string>
+    <string name="label_tof_right">Right Distance</string>
+    <string name="label_upright">Helmet Upright</string>
+    <string name="no_devices_found">No devices found.\nTap Scan to search.</string>
+    <string name="placeholder_value">—</string>
+    <string name="section_capacitive">Capacitive Sensors</string>
+    <string name="section_controls">Read Interval</string>
+    <string name="section_sensors">Orientation &amp; Motion</string>
+    <string name="section_tof">ToF Distance Sensors</string>
+    <string name="status_connected">Connected</string>
+    <string name="status_connecting">Connecting…</string>
+    <string name="status_disconnected">Disconnected</string>
+    <string name="status_error">Error</string>
+    <string name="status_idle">Idle</string>
+    <string name="status_reading">Reading…</string>
+    <string name="status_scanning">Scanning…</string>
+    <string name="title_dashboard">Helmet Device</string>
+    <string name="title_scan">BLE Device Scanner</string>
+    <string name="value_closed">CLOSED</string>
+    <string name="value_false">FALSE</string>
+    <string name="value_moving">MOVING</string>
+    <string name="value_open">OPEN</string>
+    <string name="value_stopped">STOPPED</string>
+    <string name="value_true">TRUE</string>
+    <string name="value_unavailable">—</string>
+    <style name="Theme.SmartHelmet" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryVariant</item>
+        <item name="colorOnPrimary">@color/colorOnPrimary</item>
+        <item name="colorSecondary">@color/colorAccent</item>
+        <item name="colorError">@color/colorError</item>
+        <item name="android:windowBackground">@color/background</item>
+    </style>
+</resources>

@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "com.smarthelmet.ble.app-mergeDebugResources-33:/layout/item_device.xml",
+        "source": "com.smarthelmet.ble.app-main-36:/layout/item_device.xml"
+    },
+    {
+        "merged": "com.smarthelmet.ble.app-mergeDebugResources-33:/layout/activity_dashboard.xml",
+        "source": "com.smarthelmet.ble.app-main-36:/layout/activity_dashboard.xml"
+    },
+    {
+        "merged": "com.smarthelmet.ble.app-mergeDebugResources-33:/layout/activity_scan.xml",
+        "source": "com.smarthelmet.ble.app-main-36:/layout/activity_scan.xml"
+    }
+]

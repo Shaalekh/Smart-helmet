@@ -10,13 +10,13 @@ object BleConstants {
 
     // ── Service UUID ──────────────────────────────────────────────────────────
     // TO_BE_DEFINED: replace with the actual 128-bit service UUID from firmware
-    val SERVICE_UUID: UUID = UUID.fromString("952EE620-5DC3-91A3-5E49-A3A20110A010")
+    val SERVICE_UUID: UUID = UUID.fromString("10a01001-a2a3-495e-a391-c35d20e62e95")
 
     // ── Characteristic UUIDs ──────────────────────────────────────────────────
     // TO_BE_DEFINED: replace each with the matching characteristic UUID
 
     /** Helmet upright status – 1 byte: 0 = not upright, 1 = upright */
-    val UUID_UPRIGHT: UUID = UUID.fromString("952EE620-5DC3-91A3-5E49-A3A20210A010")
+    val UUID_UPRIGHT: UUID = UUID.fromString("10a01002-a2a3-495e-a391-c35d20e62e95")
 
     /** Accelerometer – 6 bytes: Int16 X, Int16 Y, Int16 Z (little-endian) */
     val UUID_ACCEL: UUID = UUID.fromString("0000FF02-0000-1000-8000-00805F9B34FB")
@@ -25,7 +25,7 @@ object BleConstants {
     val UUID_MOTION: UUID = UUID.fromString("0000FF03-0000-1000-8000-00805F9B34FB")
 
     /** Strap status – 1 byte: 0 = closed, 1 = open */
-    val UUID_STRAP: UUID = UUID.fromString("952EE620-5DC3-91A3-5E49-A3A20310A010")
+    val UUID_STRAP: UUID = UUID.fromString("10a01003-a2a3-495e-a391-c35d20e62e95")
 
     /** Crown capacitive sensor – 1 byte: 0 = no contact, 1 = contact */
     val UUID_CAPACITIVE_CROWN: UUID = UUID.fromString("0000FF05-0000-1000-8000-00805F9B34FB")
