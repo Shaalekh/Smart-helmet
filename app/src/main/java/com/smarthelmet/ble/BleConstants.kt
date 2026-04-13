@@ -28,10 +28,10 @@ object BleConstants {
     val UUID_STRAP: UUID = UUID.fromString("10a01003-a2a3-495e-a391-c35d20e62e95")
 
     /** Crown capacitive sensor – 1 byte: 0 = no contact, 1 = contact */
-    val UUID_CAPACITIVE_CROWN: UUID = UUID.fromString("0000FF05-0000-1000-8000-00805F9B34FB")
+    val UUID_CAPACITIVE_CROWN: UUID = UUID.fromString("10a01004-a2a3-495e-a391-c35d20e62e95")
 
     /** Forehead capacitive sensor – 1 byte: 0 = no contact, 1 = contact */
-    val UUID_CAPACITIVE_FOREHEAD: UUID = UUID.fromString("0000FF06-0000-1000-8000-00805F9B34FB")
+    val UUID_CAPACITIVE_FOREHEAD: UUID = UUID.fromString("10a01005-a2a3-495e-a391-c35d20e62e95")
 
     /** Time-of-Flight left sensor – 2 bytes: UInt16 distance in mm (little-endian) */
     val UUID_TOF_LEFT: UUID = UUID.fromString("0000FF07-0000-1000-8000-00805F9B34FB")
