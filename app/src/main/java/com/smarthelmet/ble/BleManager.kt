@@ -279,7 +279,7 @@ class BleManager(private val context: Context) {
             accelY = accel?.let { parseInt16LE(it, 2) },
             accelZ = accel?.let { parseInt16LE(it, 4) },
             bikeMoving = motion?.firstOrNull()?.let { it.toInt() != 0 },
-            strapOpen = strap?.firstOrNull()?.let { it.toInt() != 0 },
+            strapOpen = strap?.firstOrNull()?.let { it.toInt() == 0 },
             crownCapacitive = crown?.firstOrNull()?.let { it.toInt() != 0 },
             foreheadCapacitive = forehead?.firstOrNull()?.let { it.toInt() != 0 },
             tofLeftMm = tofLeft?.let { parseUInt16LE(it, 0) },

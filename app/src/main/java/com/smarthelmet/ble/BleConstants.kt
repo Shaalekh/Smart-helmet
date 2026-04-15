@@ -24,7 +24,7 @@ object BleConstants {
     /** Bike motion status – 1 byte: 0 = stopped, 1 = moving */
     val UUID_MOTION: UUID = UUID.fromString("0000FF03-0000-1000-8000-00805F9B34FB")
 
-    /** Strap status – 1 byte: 0 = closed, 1 = open */
+    /** Strap status – 1 byte: 0 = open, 1 = closed */
     val UUID_STRAP: UUID = UUID.fromString("10a01003-a2a3-495e-a391-c35d20e62e95")
 
     /** Crown capacitive sensor – 1 byte: 0 = no contact, 1 = contact */
