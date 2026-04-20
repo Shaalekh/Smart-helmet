@@ -27,8 +27,7 @@
     <string name="label_forehead_cap">Forehead Capacitive</string>
     <string name="label_motion">Bike Motion</string>
     <string name="label_strap">Strap Status</string>
-    <string name="label_tof_left">Left Distance</string>
-    <string name="label_tof_right">Right Distance</string>
+    <string name="label_tof_distance">ToF Distance</string>
     <string name="label_upright">Helmet Upright</string>
     <string name="no_devices_found">No devices found.\nTap Scan to search.</string>
     <string name="placeholder_value">—</string>

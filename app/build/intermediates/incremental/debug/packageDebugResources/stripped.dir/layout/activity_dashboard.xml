@@ -323,7 +323,7 @@
                         android:textColor="@color/colorPrimary"
                         android:layout_marginBottom="8dp" />
 
-                    <!-- ToF Left -->
+                    <!-- ToF Distance -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -333,37 +333,11 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="@string/label_tof_left"
+                            android:text="@string/label_tof_distance"
                             android:textAppearance="?attr/textAppearanceBody2"
                             android:textColor="@color/textSecondary" />
                         <TextView
-                            android:id="@+id/tvTofLeft"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/placeholder_value"
-                            android:textAppearance="?attr/textAppearanceBody1"
-                            android:textColor="@color/textPrimary"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                    <View android:layout_width="match_parent" android:layout_height="1dp"
-                        android:background="@color/divider" android:layout_marginVertical="8dp" />
-
-                    <!-- ToF Right -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical">
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="@string/label_tof_right"
-                            android:textAppearance="?attr/textAppearanceBody2"
-                            android:textColor="@color/textSecondary" />
-                        <TextView
-                            android:id="@+id/tvTofRight"
+                            android:id="@+id/tvTofDistance"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/placeholder_value"

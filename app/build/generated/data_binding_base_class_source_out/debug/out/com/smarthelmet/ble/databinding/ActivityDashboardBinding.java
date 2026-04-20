@@ -68,10 +68,7 @@ public final class ActivityDashboardBinding implements ViewBinding {
   public final TextView tvStrap;
 
   @NonNull
-  public final TextView tvTofLeft;
-
-  @NonNull
-  public final TextView tvTofRight;
+  public final TextView tvTofDistance;
 
   @NonNull
   public final TextView tvUpright;
@@ -83,7 +80,7 @@ public final class ActivityDashboardBinding implements ViewBinding {
       @NonNull TextView tvDeviceAddress, @NonNull TextView tvDeviceName,
       @NonNull TextView tvForeheadCap, @NonNull TextView tvIntervalLabel,
       @NonNull TextView tvMotion, @NonNull TextView tvStatus, @NonNull TextView tvStrap,
-      @NonNull TextView tvTofLeft, @NonNull TextView tvTofRight, @NonNull TextView tvUpright) {
+      @NonNull TextView tvTofDistance, @NonNull TextView tvUpright) {
     this.rootView = rootView;
     this.btnBack = btnBack;
     this.btnDisconnect = btnDisconnect;
@@ -100,8 +97,7 @@ public final class ActivityDashboardBinding implements ViewBinding {
     this.tvMotion = tvMotion;
     this.tvStatus = tvStatus;
     this.tvStrap = tvStrap;
-    this.tvTofLeft = tvTofLeft;
-    this.tvTofRight = tvTofRight;
+    this.tvTofDistance = tvTofDistance;
     this.tvUpright = tvUpright;
   }
 
@@ -222,15 +218,9 @@ public final class ActivityDashboardBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.tvTofLeft;
-      TextView tvTofLeft = ViewBindings.findChildViewById(rootView, id);
-      if (tvTofLeft == null) {
-        break missingId;
-      }
-
-      id = R.id.tvTofRight;
-      TextView tvTofRight = ViewBindings.findChildViewById(rootView, id);
-      if (tvTofRight == null) {
+      id = R.id.tvTofDistance;
+      TextView tvTofDistance = ViewBindings.findChildViewById(rootView, id);
+      if (tvTofDistance == null) {
         break missingId;
       }
 
@@ -242,8 +232,8 @@ public final class ActivityDashboardBinding implements ViewBinding {
 
       return new ActivityDashboardBinding((LinearLayout) rootView, btnBack, btnDisconnect, btnRead,
           seekbarInterval, toolbar, tvAccel, tvCapSummary, tvCrownCap, tvDeviceAddress,
-          tvDeviceName, tvForeheadCap, tvIntervalLabel, tvMotion, tvStatus, tvStrap, tvTofLeft,
-          tvTofRight, tvUpright);
+          tvDeviceName, tvForeheadCap, tvIntervalLabel, tvMotion, tvStatus, tvStrap, tvTofDistance,
+          tvUpright);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

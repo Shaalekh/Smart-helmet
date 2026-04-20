@@ -270,20 +270,18 @@ class BleManager(private val context: Context) {
         val strap = readSequential(BleConstants.UUID_STRAP)
         val crown = readSequential(BleConstants.UUID_CAPACITIVE_CROWN)
         val forehead = readSequential(BleConstants.UUID_CAPACITIVE_FOREHEAD)
-        val tofLeft = readSequential(BleConstants.UUID_TOF_LEFT)
-        val tofRight = readSequential(BleConstants.UUID_TOF_RIGHT)
+        val tofDistance = readSequential(BleConstants.UUID_TOF_DISTANCE)
 
         return HelmetData(
             upright = upRight?.firstOrNull()?.let { it.toInt() != 0 },
-            accelX = accel?.let { parseInt16LE(it, 0) },
-            accelY = accel?.let { parseInt16LE(it, 2) },
-            accelZ = accel?.let { parseInt16LE(it, 4) },
+            accelX = accel?.let { parseFloat32LE(it, 0) },
+            accelY = accel?.let { parseFloat32LE(it, 4) },
+            accelZ = accel?.let { parseFloat32LE(it, 8) },
             bikeMoving = motion?.firstOrNull()?.let { it.toInt() != 0 },
             strapOpen = strap?.firstOrNull()?.let { it.toInt() == 0 },
             crownCapacitive = crown?.firstOrNull()?.let { it.toInt() != 0 },
             foreheadCapacitive = forehead?.firstOrNull()?.let { it.toInt() != 0 },
-            tofLeftMm = tofLeft?.let { parseUInt16LE(it, 0) },
-            tofRightMm = tofRight?.let { parseUInt16LE(it, 0) }
+            tofDistanceMm = tofDistance?.let { parseUInt16LE(it, 0) }
         )
     }
 
@@ -299,6 +297,14 @@ class BleManager(private val context: Context) {
     private fun parseUInt16LE(bytes: ByteArray, offset: Int): Int? {
         if (bytes.size < offset + 2) return null
         return ((bytes[offset].toInt() and 0xFF) or ((bytes[offset + 1].toInt() and 0xFF) shl 8))
+    }
+
+    /** Parses a 32-bit little-endian IEEE-754 float from [bytes] at [offset]. */
+    private fun parseFloat32LE(bytes: ByteArray, offset: Int): Float? {
+        if (bytes.size < offset + 4) return null
+        return java.nio.ByteBuffer.wrap(bytes, offset, 4)
+            .order(java.nio.ByteOrder.LITTLE_ENDIAN)
+            .float
     }
 
     private fun notifyError(message: String) {

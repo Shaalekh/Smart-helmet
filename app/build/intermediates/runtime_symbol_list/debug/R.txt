@@ -3580,8 +3580,7 @@ int id tvMotion 0x7f0801ea
 int id tvNoDevices 0x7f0801eb
 int id tvStatus 0x7f0801ec
 int id tvStrap 0x7f0801ed
-int id tvTofLeft 0x7f0801ee
-int id tvTofRight 0x7f0801ef
+int id tvTofDistance 0x7f080208
 int id tvUpright 0x7f0801f0
 int id unchecked 0x7f0801f1
 int id uniform 0x7f0801f2
@@ -3875,8 +3874,7 @@ int string label_device 0x7f0f0042
 int string label_forehead_cap 0x7f0f0043
 int string label_motion 0x7f0f0044
 int string label_strap 0x7f0f0045
-int string label_tof_left 0x7f0f0046
-int string label_tof_right 0x7f0f0047
+int string label_tof_distance 0x7f0f00cf
 int string label_upright 0x7f0f0048
 int string m3_exceed_max_badge_text_suffix 0x7f0f0049
 int string m3_ref_typeface_brand_medium 0x7f0f004a

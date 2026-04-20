@@ -32,8 +32,7 @@ id tvMotion
 id tvNoDevices
 id tvStatus
 id tvStrap
-id tvTofLeft
-id tvTofRight
+id tvTofDistance
 id tvUpright
 layout activity_dashboard
 layout activity_scan
@@ -56,8 +55,7 @@ string label_device
 string label_forehead_cap
 string label_motion
 string label_strap
-string label_tof_left
-string label_tof_right
+string label_tof_distance
 string label_upright
 string no_devices_found
 string placeholder_value

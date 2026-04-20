@@ -1,14 +1,18 @@
 [
     {
-        "merged": "com.smarthelmet.ble.app-mergeDebugResources-33:/layout/item_device.xml",
-        "source": "com.smarthelmet.ble.app-main-36:/layout/item_device.xml"
+        "merged": "/home/shaalekh/.gradle/daemon/8.4/com.smarthelmet.ble.app-mergeDebugResources-33:/layout/activity_dashboard.xml",
+        "source": "/home/shaalekh/.gradle/daemon/8.4/com.smarthelmet.ble.app-main-36:/layout/activity_dashboard.xml"
+    },
+    {
+        "merged": "/home/shaalekh/.gradle/daemon/8.4/com.smarthelmet.ble.app-mergeDebugResources-33:/layout/activity_scan.xml",
+        "source": "/home/shaalekh/.gradle/daemon/8.4/com.smarthelmet.ble.app-main-36:/layout/activity_scan.xml"
     },
     {
         "merged": "com.smarthelmet.ble.app-mergeDebugResources-33:/layout/activity_dashboard.xml",
         "source": "com.smarthelmet.ble.app-main-36:/layout/activity_dashboard.xml"
     },
     {
-        "merged": "com.smarthelmet.ble.app-mergeDebugResources-33:/layout/activity_scan.xml",
-        "source": "com.smarthelmet.ble.app-main-36:/layout/activity_scan.xml"
+        "merged": "/home/shaalekh/.gradle/daemon/8.4/com.smarthelmet.ble.app-mergeDebugResources-33:/layout/item_device.xml",
+        "source": "/home/shaalekh/.gradle/daemon/8.4/com.smarthelmet.ble.app-main-36:/layout/item_device.xml"
     }
 ]

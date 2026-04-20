@@ -32,8 +32,7 @@
     <string name="label_crown_cap">Crown Capacitive</string>
     <string name="label_forehead_cap">Forehead Capacitive</string>
     <string name="label_cap_summary">Capacitive Summary</string>
-    <string name="label_tof_left">Left Distance</string>
-    <string name="label_tof_right">Right Distance</string>
+    <string name="label_tof_distance">ToF Distance</string>
 
     <!-- Sensor values -->
     <string name="value_true">TRUE</string>

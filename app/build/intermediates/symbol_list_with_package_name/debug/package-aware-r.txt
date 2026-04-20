@@ -3581,8 +3581,7 @@ id tvMotion
 id tvNoDevices
 id tvStatus
 id tvStrap
-id tvTofLeft
-id tvTofRight
+id tvTofDistance
 id tvUpright
 id unchecked
 id uniform
@@ -3876,8 +3875,7 @@ string label_device
 string label_forehead_cap
 string label_motion
 string label_strap
-string label_tof_left
-string label_tof_right
+string label_tof_distance
 string label_upright
 string m3_exceed_max_badge_text_suffix
 string m3_ref_typeface_brand_medium

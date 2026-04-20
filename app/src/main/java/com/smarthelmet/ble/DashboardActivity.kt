@@ -88,14 +88,13 @@ class DashboardActivity : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
     private fun updateUiWithData(data: HelmetData) {
         binding.tvUpright.text = if (data.upright == true) getString(R.string.value_true) else getString(R.string.value_false)
-        binding.tvAccel.text = "X: ${data.accelX ?: 0}, Y: ${data.accelY ?: 0}, Z: ${data.accelZ ?: 0}"
+        binding.tvAccel.text = String.format(Locale.getDefault(), "X: %.2f, Y: %.2f, Z: %.2f", data.accelX ?: 0f, data.accelY ?: 0f, data.accelZ ?: 0f)
         binding.tvMotion.text = if (data.bikeMoving == true) getString(R.string.value_moving) else getString(R.string.value_stopped)
         binding.tvStrap.text = if (data.strapOpen == true) getString(R.string.value_open) else getString(R.string.value_closed)
         binding.tvCrownCap.text = if (data.crownCapacitive == true) getString(R.string.value_true) else getString(R.string.value_false)
         binding.tvForeheadCap.text = if (data.foreheadCapacitive == true) getString(R.string.value_true) else getString(R.string.value_false)
         binding.tvCapSummary.text = "Active: ${data.capacitiveActiveCount}"
-        binding.tvTofLeft.text = "${data.tofLeftMm ?: 0} mm"
-        binding.tvTofRight.text = "${data.tofRightMm ?: 0} mm"
+        binding.tvTofDistance.text = "${data.tofDistanceMm ?: 0} mm"
     }
 
     override fun onDestroy() {
