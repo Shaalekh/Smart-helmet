@@ -3583,6 +3583,7 @@ id tvStatus
 id tvStrap
 id tvTofDistance
 id tvUpright
+id tvWornStatus
 id unchecked
 id uniform
 id unlabeled
@@ -3877,6 +3878,7 @@ string label_motion
 string label_strap
 string label_tof_distance
 string label_upright
+string label_worn_status
 string m3_exceed_max_badge_text_suffix
 string m3_ref_typeface_brand_medium
 string m3_ref_typeface_brand_regular
@@ -4007,10 +4009,13 @@ string title_scan
 string value_closed
 string value_false
 string value_moving
+string value_not_worn
 string value_open
+string value_partial_worn
 string value_stopped
 string value_true
 string value_unavailable
+string value_worn
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style Animation_AppCompat_Dialog

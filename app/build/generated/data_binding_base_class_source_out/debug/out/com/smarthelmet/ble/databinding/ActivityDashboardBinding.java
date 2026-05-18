@@ -73,6 +73,9 @@ public final class ActivityDashboardBinding implements ViewBinding {
   @NonNull
   public final TextView tvUpright;
 
+  @NonNull
+  public final TextView tvWornStatus;
+
   private ActivityDashboardBinding(@NonNull LinearLayout rootView, @NonNull MaterialButton btnBack,
       @NonNull MaterialButton btnDisconnect, @NonNull MaterialButton btnRead,
       @NonNull SeekBar seekbarInterval, @NonNull Toolbar toolbar, @NonNull TextView tvAccel,
@@ -80,7 +83,8 @@ public final class ActivityDashboardBinding implements ViewBinding {
       @NonNull TextView tvDeviceAddress, @NonNull TextView tvDeviceName,
       @NonNull TextView tvForeheadCap, @NonNull TextView tvIntervalLabel,
       @NonNull TextView tvMotion, @NonNull TextView tvStatus, @NonNull TextView tvStrap,
-      @NonNull TextView tvTofDistance, @NonNull TextView tvUpright) {
+      @NonNull TextView tvTofDistance, @NonNull TextView tvUpright,
+      @NonNull TextView tvWornStatus) {
     this.rootView = rootView;
     this.btnBack = btnBack;
     this.btnDisconnect = btnDisconnect;
@@ -99,6 +103,7 @@ public final class ActivityDashboardBinding implements ViewBinding {
     this.tvStrap = tvStrap;
     this.tvTofDistance = tvTofDistance;
     this.tvUpright = tvUpright;
+    this.tvWornStatus = tvWornStatus;
   }
 
   @Override
@@ -230,10 +235,16 @@ public final class ActivityDashboardBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.tvWornStatus;
+      TextView tvWornStatus = ViewBindings.findChildViewById(rootView, id);
+      if (tvWornStatus == null) {
+        break missingId;
+      }
+
       return new ActivityDashboardBinding((LinearLayout) rootView, btnBack, btnDisconnect, btnRead,
           seekbarInterval, toolbar, tvAccel, tvCapSummary, tvCrownCap, tvDeviceAddress,
           tvDeviceName, tvForeheadCap, tvIntervalLabel, tvMotion, tvStatus, tvStrap, tvTofDistance,
-          tvUpright);
+          tvUpright, tvWornStatus);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

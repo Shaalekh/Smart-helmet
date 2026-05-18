@@ -3582,6 +3582,7 @@ int id tvStatus 0x7f0801ec
 int id tvStrap 0x7f0801ed
 int id tvTofDistance 0x7f080208
 int id tvUpright 0x7f0801f0
+int id tvWornStatus 0x7f080209
 int id unchecked 0x7f0801f1
 int id uniform 0x7f0801f2
 int id unlabeled 0x7f0801f3
@@ -3876,6 +3877,7 @@ int string label_motion 0x7f0f0044
 int string label_strap 0x7f0f0045
 int string label_tof_distance 0x7f0f00cf
 int string label_upright 0x7f0f0048
+int string label_worn_status 0x7f0f00d0
 int string m3_exceed_max_badge_text_suffix 0x7f0f0049
 int string m3_ref_typeface_brand_medium 0x7f0f004a
 int string m3_ref_typeface_brand_regular 0x7f0f004b
@@ -4006,10 +4008,13 @@ int string title_scan 0x7f0f00c7
 int string value_closed 0x7f0f00c8
 int string value_false 0x7f0f00c9
 int string value_moving 0x7f0f00ca
+int string value_not_worn 0x7f0f00d1
 int string value_open 0x7f0f00cb
+int string value_partial_worn 0x7f0f00d3
 int string value_stopped 0x7f0f00cc
 int string value_true 0x7f0f00cd
 int string value_unavailable 0x7f0f00ce
+int string value_worn 0x7f0f00d2
 int style AlertDialog_AppCompat 0x7f100000
 int style AlertDialog_AppCompat_Light 0x7f100001
 int style Animation_AppCompat_Dialog 0x7f100002

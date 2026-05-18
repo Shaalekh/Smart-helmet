@@ -2023,6 +2023,7 @@
     <string name="label_strap">Strap Status</string>
     <string name="label_tof_distance">ToF Distance</string>
     <string name="label_upright">Helmet Upright</string>
+    <string name="label_worn_status">Worn Status</string>
     <string name="m3_exceed_max_badge_text_suffix" translatable="false"><ns2:g example="Some te" id="part of a long text">%1$s</ns2:g><ns2:g example="…" id="suffix">%2$s</ns2:g></string>
     <string name="m3_ref_typeface_brand_medium" translatable="false">sans-serif-medium</string>
     <string name="m3_ref_typeface_brand_regular" translatable="false">sans-serif</string>
@@ -2161,10 +2162,13 @@
     <string name="value_closed">CLOSED</string>
     <string name="value_false">FALSE</string>
     <string name="value_moving">MOVING</string>
+    <string name="value_not_worn">NOT WORN</string>
     <string name="value_open">OPEN</string>
+    <string name="value_partial_worn">PARTIAL WORN</string>
     <string name="value_stopped">STOPPED</string>
     <string name="value_true">TRUE</string>
     <string name="value_unavailable">—</string>
+    <string name="value_worn">WORN</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>
     <style name="Animation.AppCompat.Dialog" parent="Base.Animation.AppCompat.Dialog"/>

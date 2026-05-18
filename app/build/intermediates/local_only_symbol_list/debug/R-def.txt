@@ -34,6 +34,7 @@ id tvStatus
 id tvStrap
 id tvTofDistance
 id tvUpright
+id tvWornStatus
 layout activity_dashboard
 layout activity_scan
 layout item_device
@@ -57,6 +58,7 @@ string label_motion
 string label_strap
 string label_tof_distance
 string label_upright
+string label_worn_status
 string no_devices_found
 string placeholder_value
 string section_capacitive
@@ -75,8 +77,11 @@ string title_scan
 string value_closed
 string value_false
 string value_moving
+string value_not_worn
 string value_open
+string value_partial_worn
 string value_stopped
 string value_true
 string value_unavailable
+string value_worn
 style Theme.SmartHelmet

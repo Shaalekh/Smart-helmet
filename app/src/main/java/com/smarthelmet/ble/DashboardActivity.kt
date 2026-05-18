@@ -14,6 +14,8 @@ class DashboardActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDashboardBinding
     private lateinit var bleManager: BleManager
     private var readInterval = BleConstants.INTERVAL_MIN_S
+    private var isHelmetWorn = false
+    private var notWornConditionStartTime = 0L
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -87,6 +89,29 @@ class DashboardActivity : AppCompatActivity() {
 
     @SuppressLint("SetTextI18n")
     private fun updateUiWithData(data: HelmetData) {
+        data.tofDistanceMm?.let { distance ->
+            if (data.crownCapacitive == true && data.foreheadCapacitive == true && distance < 30) {
+                isHelmetWorn = true
+                notWornConditionStartTime = 0L
+            } else if (distance >= 30) {
+                if (isHelmetWorn) {
+                    if (notWornConditionStartTime == 0L) {
+                        notWornConditionStartTime = System.currentTimeMillis()
+                    } else if (System.currentTimeMillis() - notWornConditionStartTime >= 2000L) {
+                        isHelmetWorn = false
+                        notWornConditionStartTime = 0L
+                    }
+                }
+            } else {
+                notWornConditionStartTime = 0L
+            }
+        }
+
+        binding.tvWornStatus.text = if (isHelmetWorn) {
+            if (data.strapOpen == true) getString(R.string.value_partial_worn) else getString(R.string.value_worn)
+        } else {
+            getString(R.string.value_not_worn)
+        }
         binding.tvUpright.text = if (data.upright == true) getString(R.string.value_true) else getString(R.string.value_false)
         binding.tvAccel.text = String.format(Locale.getDefault(), "X: %.2f, Y: %.2f, Z: %.2f", data.accelX ?: 0f, data.accelY ?: 0f, data.accelZ ?: 0f)
         binding.tvMotion.text = if (data.bikeMoving == true) getString(R.string.value_moving) else getString(R.string.value_stopped)

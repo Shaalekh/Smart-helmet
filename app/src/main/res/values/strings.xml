@@ -25,6 +25,7 @@
     <string name="section_controls">Read Interval</string>
 
     <!-- Sensor labels -->
+    <string name="label_worn_status">Worn Status</string>
     <string name="label_upright">Helmet Upright</string>
     <string name="label_accel">Accelerometer (X, Y, Z)</string>
     <string name="label_motion">Bike Motion</string>
@@ -37,6 +38,9 @@
     <!-- Sensor values -->
     <string name="value_true">TRUE</string>
     <string name="value_false">FALSE</string>
+    <string name="value_worn">WORN</string>
+    <string name="value_partial_worn">PARTIAL WORN</string>
+    <string name="value_not_worn">NOT WORN</string>
     <string name="value_moving">MOVING</string>
     <string name="value_stopped">STOPPED</string>
     <string name="value_open">OPEN</string>
