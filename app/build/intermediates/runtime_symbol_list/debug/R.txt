@@ -3580,7 +3580,9 @@ int id tvMotion 0x7f0801ea
 int id tvNoDevices 0x7f0801eb
 int id tvStatus 0x7f0801ec
 int id tvStrap 0x7f0801ed
-int id tvTofDistance 0x7f080208
+int id tvTemp 0x7f08020c
+int id tvTof1 0x7f08020a
+int id tvTof2 0x7f08020b
 int id tvUpright 0x7f0801f0
 int id tvWornStatus 0x7f080209
 int id unchecked 0x7f0801f1
@@ -3875,7 +3877,9 @@ int string label_device 0x7f0f0042
 int string label_forehead_cap 0x7f0f0043
 int string label_motion 0x7f0f0044
 int string label_strap 0x7f0f0045
-int string label_tof_distance 0x7f0f00cf
+int string label_temp 0x7f0f00d6
+int string label_tof_1 0x7f0f00d4
+int string label_tof_2 0x7f0f00d5
 int string label_upright 0x7f0f0048
 int string label_worn_status 0x7f0f00d0
 int string m3_exceed_max_badge_text_suffix 0x7f0f0049
@@ -3992,6 +3996,7 @@ int string searchview_navigation_content_description 0x7f0f00b7
 int string section_capacitive 0x7f0f00b8
 int string section_controls 0x7f0f00b9
 int string section_sensors 0x7f0f00ba
+int string section_temp 0x7f0f00d7
 int string section_tof 0x7f0f00bb
 int string side_sheet_accessibility_pane_title 0x7f0f00bc
 int string side_sheet_behavior 0x7f0f00bd

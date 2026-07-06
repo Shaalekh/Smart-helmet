@@ -270,7 +270,9 @@ class BleManager(private val context: Context) {
         val strap = readSequential(BleConstants.UUID_STRAP)
         val crown = readSequential(BleConstants.UUID_CAPACITIVE_CROWN)
         val forehead = readSequential(BleConstants.UUID_CAPACITIVE_FOREHEAD)
-        val tofDistance = readSequential(BleConstants.UUID_TOF_DISTANCE)
+        val tof1 = readSequential(BleConstants.UUID_TOF_1)
+        val tof2 = readSequential(BleConstants.UUID_TOF_2)
+        val temp = readSequential(BleConstants.UUID_TEMPERATURE)
 
         return HelmetData(
             upright = upRight?.firstOrNull()?.let { it.toInt() != 0 },
@@ -281,7 +283,9 @@ class BleManager(private val context: Context) {
             strapOpen = strap?.firstOrNull()?.let { it.toInt() == 0 },
             crownCapacitive = crown?.firstOrNull()?.let { it.toInt() != 0 },
             foreheadCapacitive = forehead?.firstOrNull()?.let { it.toInt() != 0 },
-            tofDistanceMm = tofDistance?.let { parseUInt16LE(it, 0) }
+            tof1DistanceMm = tof1?.let { parseUInt16LE(it, 0) },
+            tof2DistanceMm = tof2?.let { parseUInt16LE(it, 0) },
+            temperatureC = temp?.let { parseFloat32LE(it, 0) }
         )
     }
 

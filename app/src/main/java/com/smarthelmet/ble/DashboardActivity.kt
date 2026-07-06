@@ -89,7 +89,7 @@ class DashboardActivity : AppCompatActivity() {
 
     @SuppressLint("SetTextI18n")
     private fun updateUiWithData(data: HelmetData) {
-        data.tofDistanceMm?.let { distance ->
+        data.tof1DistanceMm?.let { distance ->
             if (data.crownCapacitive == true && data.foreheadCapacitive == true && distance < 30) {
                 isHelmetWorn = true
                 notWornConditionStartTime = 0L
@@ -119,7 +119,9 @@ class DashboardActivity : AppCompatActivity() {
         binding.tvCrownCap.text = if (data.crownCapacitive == true) getString(R.string.value_true) else getString(R.string.value_false)
         binding.tvForeheadCap.text = if (data.foreheadCapacitive == true) getString(R.string.value_true) else getString(R.string.value_false)
         binding.tvCapSummary.text = "Active: ${data.capacitiveActiveCount}"
-        binding.tvTofDistance.text = "${data.tofDistanceMm ?: 0} mm"
+        binding.tvTof1.text = "${data.tof1DistanceMm ?: 0} mm"
+        binding.tvTof2.text = "${data.tof2DistanceMm ?: 0} mm"
+        binding.tvTemp.text = if (data.temperatureC != null) String.format(Locale.getDefault(), "%.1f °C", data.temperatureC) else getString(R.string.value_unavailable)
     }
 
     override fun onDestroy() {

@@ -32,7 +32,9 @@ id tvMotion
 id tvNoDevices
 id tvStatus
 id tvStrap
-id tvTofDistance
+id tvTemp
+id tvTof1
+id tvTof2
 id tvUpright
 id tvWornStatus
 layout activity_dashboard
@@ -56,7 +58,9 @@ string label_device
 string label_forehead_cap
 string label_motion
 string label_strap
-string label_tof_distance
+string label_temp
+string label_tof_1
+string label_tof_2
 string label_upright
 string label_worn_status
 string no_devices_found
@@ -64,6 +68,7 @@ string placeholder_value
 string section_capacitive
 string section_controls
 string section_sensors
+string section_temp
 string section_tof
 string status_connected
 string status_connecting

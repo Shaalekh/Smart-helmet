@@ -27,7 +27,9 @@
     <string name="label_forehead_cap">Forehead Capacitive</string>
     <string name="label_motion">Bike Motion</string>
     <string name="label_strap">Strap Status</string>
-    <string name="label_tof_distance">ToF Distance</string>
+    <string name="label_temp">Helmet Temperature</string>
+    <string name="label_tof_1">ToF 1 Distance</string>
+    <string name="label_tof_2">ToF 2 Distance</string>
     <string name="label_upright">Helmet Upright</string>
     <string name="label_worn_status">Worn Status</string>
     <string name="no_devices_found">No devices found.\nTap Scan to search.</string>
@@ -35,6 +37,7 @@
     <string name="section_capacitive">Capacitive Sensors</string>
     <string name="section_controls">Read Interval</string>
     <string name="section_sensors">Orientation &amp; Motion</string>
+    <string name="section_temp">Environment</string>
     <string name="section_tof">ToF Distance Sensors</string>
     <string name="status_connected">Connected</string>
     <string name="status_connecting">Connecting…</string>

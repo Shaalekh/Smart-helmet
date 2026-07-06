@@ -68,7 +68,13 @@ public final class ActivityDashboardBinding implements ViewBinding {
   public final TextView tvStrap;
 
   @NonNull
-  public final TextView tvTofDistance;
+  public final TextView tvTemp;
+
+  @NonNull
+  public final TextView tvTof1;
+
+  @NonNull
+  public final TextView tvTof2;
 
   @NonNull
   public final TextView tvUpright;
@@ -83,8 +89,8 @@ public final class ActivityDashboardBinding implements ViewBinding {
       @NonNull TextView tvDeviceAddress, @NonNull TextView tvDeviceName,
       @NonNull TextView tvForeheadCap, @NonNull TextView tvIntervalLabel,
       @NonNull TextView tvMotion, @NonNull TextView tvStatus, @NonNull TextView tvStrap,
-      @NonNull TextView tvTofDistance, @NonNull TextView tvUpright,
-      @NonNull TextView tvWornStatus) {
+      @NonNull TextView tvTemp, @NonNull TextView tvTof1, @NonNull TextView tvTof2,
+      @NonNull TextView tvUpright, @NonNull TextView tvWornStatus) {
     this.rootView = rootView;
     this.btnBack = btnBack;
     this.btnDisconnect = btnDisconnect;
@@ -101,7 +107,9 @@ public final class ActivityDashboardBinding implements ViewBinding {
     this.tvMotion = tvMotion;
     this.tvStatus = tvStatus;
     this.tvStrap = tvStrap;
-    this.tvTofDistance = tvTofDistance;
+    this.tvTemp = tvTemp;
+    this.tvTof1 = tvTof1;
+    this.tvTof2 = tvTof2;
     this.tvUpright = tvUpright;
     this.tvWornStatus = tvWornStatus;
   }
@@ -223,9 +231,21 @@ public final class ActivityDashboardBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.tvTofDistance;
-      TextView tvTofDistance = ViewBindings.findChildViewById(rootView, id);
-      if (tvTofDistance == null) {
+      id = R.id.tvTemp;
+      TextView tvTemp = ViewBindings.findChildViewById(rootView, id);
+      if (tvTemp == null) {
+        break missingId;
+      }
+
+      id = R.id.tvTof1;
+      TextView tvTof1 = ViewBindings.findChildViewById(rootView, id);
+      if (tvTof1 == null) {
+        break missingId;
+      }
+
+      id = R.id.tvTof2;
+      TextView tvTof2 = ViewBindings.findChildViewById(rootView, id);
+      if (tvTof2 == null) {
         break missingId;
       }
 
@@ -243,8 +263,8 @@ public final class ActivityDashboardBinding implements ViewBinding {
 
       return new ActivityDashboardBinding((LinearLayout) rootView, btnBack, btnDisconnect, btnRead,
           seekbarInterval, toolbar, tvAccel, tvCapSummary, tvCrownCap, tvDeviceAddress,
-          tvDeviceName, tvForeheadCap, tvIntervalLabel, tvMotion, tvStatus, tvStrap, tvTofDistance,
-          tvUpright, tvWornStatus);
+          tvDeviceName, tvForeheadCap, tvIntervalLabel, tvMotion, tvStatus, tvStrap, tvTemp, tvTof1,
+          tvTof2, tvUpright, tvWornStatus);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

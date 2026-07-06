@@ -33,8 +33,14 @@ object BleConstants {
     /** Forehead capacitive sensor – 1 byte: 0 = no contact, 1 = contact */
     val UUID_CAPACITIVE_FOREHEAD: UUID = UUID.fromString("10a01005-a2a3-495e-a391-c35d20e62e95")
 
-    /** Time-of-Flight sensor – 2 bytes: UInt16 distance in mm (little-endian) */
-    val UUID_TOF_DISTANCE: UUID = UUID.fromString("10a01007-a2a3-495e-a391-c35d20e62e95")
+    /** Time-of-Flight sensor 1 – 2 bytes: UInt16 distance in mm (little-endian) */
+    val UUID_TOF_1: UUID = UUID.fromString("10a01007-a2a3-495e-a391-c35d20e62e95")
+
+    /** Time-of-Flight sensor 2 – 2 bytes: UInt16 distance in mm (little-endian) */
+    val UUID_TOF_2: UUID = UUID.fromString("10a01009-a2a3-495e-a391-c35d20e62e95")
+
+    /** Temperature sensor (MLX90614) – 4 bytes: Float32 in Celsius */
+    val UUID_TEMPERATURE: UUID = UUID.fromString("10a01008-a2a3-495e-a391-c35d20e62e95")
 
     // ── Intent extras ─────────────────────────────────────────────────────────
     const val EXTRA_DEVICE_ADDRESS = "EXTRA_DEVICE_ADDRESS"
@@ -63,7 +69,9 @@ data class HelmetData(
     val strapOpen: Boolean? = null,
     val crownCapacitive: Boolean? = null,
     val foreheadCapacitive: Boolean? = null,
-    val tofDistanceMm: Int? = null
+    val tof1DistanceMm: Int? = null,
+    val tof2DistanceMm: Int? = null,
+    val temperatureC: Float? = null
 ) {
     val capacitiveActiveCount: Int
         get() = listOfNotNull(crownCapacitive, foreheadCapacitive).count { it }

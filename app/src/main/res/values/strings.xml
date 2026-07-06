@@ -22,6 +22,7 @@
     <string name="section_sensors">Orientation &amp; Motion</string>
     <string name="section_capacitive">Capacitive Sensors</string>
     <string name="section_tof">ToF Distance Sensors</string>
+    <string name="section_temp">Environment</string>
     <string name="section_controls">Read Interval</string>
 
     <!-- Sensor labels -->
@@ -33,7 +34,9 @@
     <string name="label_crown_cap">Crown Capacitive</string>
     <string name="label_forehead_cap">Forehead Capacitive</string>
     <string name="label_cap_summary">Capacitive Summary</string>
-    <string name="label_tof_distance">ToF Distance</string>
+    <string name="label_tof_1">ToF 1 Distance</string>
+    <string name="label_tof_2">ToF 2 Distance</string>
+    <string name="label_temp">Helmet Temperature</string>
 
     <!-- Sensor values -->
     <string name="value_true">TRUE</string>

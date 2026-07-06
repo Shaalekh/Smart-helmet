@@ -3581,7 +3581,9 @@ id tvMotion
 id tvNoDevices
 id tvStatus
 id tvStrap
-id tvTofDistance
+id tvTemp
+id tvTof1
+id tvTof2
 id tvUpright
 id tvWornStatus
 id unchecked
@@ -3876,7 +3878,9 @@ string label_device
 string label_forehead_cap
 string label_motion
 string label_strap
-string label_tof_distance
+string label_temp
+string label_tof_1
+string label_tof_2
 string label_upright
 string label_worn_status
 string m3_exceed_max_badge_text_suffix
@@ -3993,6 +3997,7 @@ string searchview_navigation_content_description
 string section_capacitive
 string section_controls
 string section_sensors
+string section_temp
 string section_tof
 string side_sheet_accessibility_pane_title
 string side_sheet_behavior

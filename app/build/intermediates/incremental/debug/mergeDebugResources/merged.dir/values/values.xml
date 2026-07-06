@@ -2021,7 +2021,9 @@
     <string name="label_forehead_cap">Forehead Capacitive</string>
     <string name="label_motion">Bike Motion</string>
     <string name="label_strap">Strap Status</string>
-    <string name="label_tof_distance">ToF Distance</string>
+    <string name="label_temp">Helmet Temperature</string>
+    <string name="label_tof_1">ToF 1 Distance</string>
+    <string name="label_tof_2">ToF 2 Distance</string>
     <string name="label_upright">Helmet Upright</string>
     <string name="label_worn_status">Worn Status</string>
     <string name="m3_exceed_max_badge_text_suffix" translatable="false"><ns2:g example="Some te" id="part of a long text">%1$s</ns2:g><ns2:g example="…" id="suffix">%2$s</ns2:g></string>
@@ -2146,6 +2148,7 @@
     <string name="section_capacitive">Capacitive Sensors</string>
     <string name="section_controls">Read Interval</string>
     <string name="section_sensors">Orientation &amp; Motion</string>
+    <string name="section_temp">Environment</string>
     <string name="section_tof">ToF Distance Sensors</string>
     <string description="Title of the side sheet&apos;s accessibility pane that is spoken by TalkBack when the side sheet appears on screen. [CHAR_LIMIT=NONE]" name="side_sheet_accessibility_pane_title">Side Sheet</string>
     <string name="side_sheet_behavior" translatable="false">com.google.android.material.sidesheet.SideSheetBehavior</string>
