@@ -6,8 +6,13 @@ import android.os.Bundle
 import android.widget.SeekBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.smarthelmet.ble.databinding.ActivityDashboardBinding
+import java.io.File
 import java.util.Locale
+import android.os.Environment
+import android.view.View
 
 class DashboardActivity : AppCompatActivity() {
 
@@ -16,6 +21,9 @@ class DashboardActivity : AppCompatActivity() {
     private var readInterval = BleConstants.INTERVAL_MIN_S
     private var isHelmetWorn = false
     private var notWornConditionStartTime = 0L
+    
+    private lateinit var dataLogger: DataLogger
+    private lateinit var logsAdapter: LogsAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +37,10 @@ class DashboardActivity : AppCompatActivity() {
         binding.tvDeviceAddress.text = deviceAddress
 
         bleManager = BleManager(this)
+        dataLogger = DataLogger(this)
+
+        setupBottomNavigation()
+        setupLogsRecyclerView()
 
         binding.btnBack.setOnClickListener { finish() }
 
@@ -39,8 +51,11 @@ class DashboardActivity : AppCompatActivity() {
         binding.btnRead.setOnClickListener {
             if (bleManager.state == BleState.READING) {
                 bleManager.stopReading()
+                dataLogger.stopSession()
                 binding.btnRead.text = getString(R.string.btn_read)
+                refreshLogs()
             } else {
+                dataLogger.startNewSession()
                 bleManager.startReading(readInterval)
                 binding.btnRead.text = getString(R.string.btn_stop_read)
             }
@@ -73,6 +88,7 @@ class DashboardActivity : AppCompatActivity() {
 
         bleManager.onDataReceived = { data ->
             updateUiWithData(data)
+            dataLogger.logData(data)
         }
 
         bleManager.onError = { errorMsg ->
@@ -84,6 +100,51 @@ class DashboardActivity : AppCompatActivity() {
             val bluetoothManager = getSystemService(BLUETOOTH_SERVICE) as BluetoothManager
             val device = bluetoothManager.adapter?.getRemoteDevice(address)
             device?.let { bleManager.connect(it) }
+        }
+    }
+
+    private fun setupBottomNavigation() {
+        binding.bottomNavigation.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_dashboard -> {
+                    findViewById<View>(R.id.dashboardContainer).visibility = View.VISIBLE
+                    findViewById<View>(R.id.logsContainer).visibility = View.GONE
+                    true
+                }
+                R.id.nav_logs -> {
+                    findViewById<View>(R.id.dashboardContainer).visibility = View.GONE
+                    findViewById<View>(R.id.logsContainer).visibility = View.VISIBLE
+                    refreshLogs()
+                    true
+                }
+                else -> false
+            }
+        }
+    }
+
+    private fun setupLogsRecyclerView() {
+        val recyclerView = findViewById<RecyclerView>(R.id.recyclerViewLogs)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        logsAdapter = LogsAdapter(this, emptyList())
+        recyclerView.adapter = logsAdapter
+        refreshLogs()
+    }
+
+    private fun refreshLogs() {
+        val logsDir = File(getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS), "HelmetLogs")
+        val files = logsDir.listFiles()?.filter { it.extension == "csv" }?.sortedByDescending { it.lastModified() } ?: emptyList()
+        val recyclerView = findViewById<RecyclerView>(R.id.recyclerViewLogs)
+        
+        logsAdapter = LogsAdapter(this, files)
+        recyclerView.adapter = logsAdapter
+        
+        val tvNoLogs = findViewById<View>(R.id.tvNoLogs)
+        if (files.isEmpty()) {
+            tvNoLogs.visibility = View.VISIBLE
+            recyclerView.visibility = View.GONE
+        } else {
+            tvNoLogs.visibility = View.GONE
+            recyclerView.visibility = View.VISIBLE
         }
     }
 
@@ -126,6 +187,7 @@ class DashboardActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
+        dataLogger.stopSession()
         bleManager.disconnect()
     }
 }
