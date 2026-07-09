@@ -4,15 +4,13 @@ package com.smarthelmet.ble.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.SeekBar;
-import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
-import com.google.android.material.button.MaterialButton;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.smarthelmet.ble.R;
 import java.lang.NullPointerException;
 import java.lang.Override;
@@ -20,103 +18,34 @@ import java.lang.String;
 
 public final class ActivityDashboardBinding implements ViewBinding {
   @NonNull
-  private final LinearLayout rootView;
+  private final ConstraintLayout rootView;
 
   @NonNull
-  public final MaterialButton btnBack;
+  public final BottomNavigationView bottomNavigation;
 
   @NonNull
-  public final MaterialButton btnDisconnect;
+  public final FragmentDashboardBinding dashboardContainer;
 
   @NonNull
-  public final MaterialButton btnRead;
-
-  @NonNull
-  public final SeekBar seekbarInterval;
+  public final FragmentLogsBinding logsContainer;
 
   @NonNull
   public final Toolbar toolbar;
 
-  @NonNull
-  public final TextView tvAccel;
-
-  @NonNull
-  public final TextView tvCapSummary;
-
-  @NonNull
-  public final TextView tvCrownCap;
-
-  @NonNull
-  public final TextView tvDeviceAddress;
-
-  @NonNull
-  public final TextView tvDeviceName;
-
-  @NonNull
-  public final TextView tvForeheadCap;
-
-  @NonNull
-  public final TextView tvIntervalLabel;
-
-  @NonNull
-  public final TextView tvMotion;
-
-  @NonNull
-  public final TextView tvStatus;
-
-  @NonNull
-  public final TextView tvStrap;
-
-  @NonNull
-  public final TextView tvTemp;
-
-  @NonNull
-  public final TextView tvTof1;
-
-  @NonNull
-  public final TextView tvTof2;
-
-  @NonNull
-  public final TextView tvUpright;
-
-  @NonNull
-  public final TextView tvWornStatus;
-
-  private ActivityDashboardBinding(@NonNull LinearLayout rootView, @NonNull MaterialButton btnBack,
-      @NonNull MaterialButton btnDisconnect, @NonNull MaterialButton btnRead,
-      @NonNull SeekBar seekbarInterval, @NonNull Toolbar toolbar, @NonNull TextView tvAccel,
-      @NonNull TextView tvCapSummary, @NonNull TextView tvCrownCap,
-      @NonNull TextView tvDeviceAddress, @NonNull TextView tvDeviceName,
-      @NonNull TextView tvForeheadCap, @NonNull TextView tvIntervalLabel,
-      @NonNull TextView tvMotion, @NonNull TextView tvStatus, @NonNull TextView tvStrap,
-      @NonNull TextView tvTemp, @NonNull TextView tvTof1, @NonNull TextView tvTof2,
-      @NonNull TextView tvUpright, @NonNull TextView tvWornStatus) {
+  private ActivityDashboardBinding(@NonNull ConstraintLayout rootView,
+      @NonNull BottomNavigationView bottomNavigation,
+      @NonNull FragmentDashboardBinding dashboardContainer,
+      @NonNull FragmentLogsBinding logsContainer, @NonNull Toolbar toolbar) {
     this.rootView = rootView;
-    this.btnBack = btnBack;
-    this.btnDisconnect = btnDisconnect;
-    this.btnRead = btnRead;
-    this.seekbarInterval = seekbarInterval;
+    this.bottomNavigation = bottomNavigation;
+    this.dashboardContainer = dashboardContainer;
+    this.logsContainer = logsContainer;
     this.toolbar = toolbar;
-    this.tvAccel = tvAccel;
-    this.tvCapSummary = tvCapSummary;
-    this.tvCrownCap = tvCrownCap;
-    this.tvDeviceAddress = tvDeviceAddress;
-    this.tvDeviceName = tvDeviceName;
-    this.tvForeheadCap = tvForeheadCap;
-    this.tvIntervalLabel = tvIntervalLabel;
-    this.tvMotion = tvMotion;
-    this.tvStatus = tvStatus;
-    this.tvStrap = tvStrap;
-    this.tvTemp = tvTemp;
-    this.tvTof1 = tvTof1;
-    this.tvTof2 = tvTof2;
-    this.tvUpright = tvUpright;
-    this.tvWornStatus = tvWornStatus;
   }
 
   @Override
   @NonNull
-  public LinearLayout getRoot() {
+  public ConstraintLayout getRoot() {
     return rootView;
   }
 
@@ -141,29 +70,25 @@ public final class ActivityDashboardBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.btnBack;
-      MaterialButton btnBack = ViewBindings.findChildViewById(rootView, id);
-      if (btnBack == null) {
+      id = R.id.bottomNavigation;
+      BottomNavigationView bottomNavigation = ViewBindings.findChildViewById(rootView, id);
+      if (bottomNavigation == null) {
         break missingId;
       }
 
-      id = R.id.btnDisconnect;
-      MaterialButton btnDisconnect = ViewBindings.findChildViewById(rootView, id);
-      if (btnDisconnect == null) {
+      id = R.id.dashboardContainer;
+      View dashboardContainer = ViewBindings.findChildViewById(rootView, id);
+      if (dashboardContainer == null) {
         break missingId;
       }
+      FragmentDashboardBinding binding_dashboardContainer = FragmentDashboardBinding.bind(dashboardContainer);
 
-      id = R.id.btnRead;
-      MaterialButton btnRead = ViewBindings.findChildViewById(rootView, id);
-      if (btnRead == null) {
+      id = R.id.logsContainer;
+      View logsContainer = ViewBindings.findChildViewById(rootView, id);
+      if (logsContainer == null) {
         break missingId;
       }
-
-      id = R.id.seekbarInterval;
-      SeekBar seekbarInterval = ViewBindings.findChildViewById(rootView, id);
-      if (seekbarInterval == null) {
-        break missingId;
-      }
+      FragmentLogsBinding binding_logsContainer = FragmentLogsBinding.bind(logsContainer);
 
       id = R.id.toolbar;
       Toolbar toolbar = ViewBindings.findChildViewById(rootView, id);
@@ -171,100 +96,8 @@ public final class ActivityDashboardBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.tvAccel;
-      TextView tvAccel = ViewBindings.findChildViewById(rootView, id);
-      if (tvAccel == null) {
-        break missingId;
-      }
-
-      id = R.id.tvCapSummary;
-      TextView tvCapSummary = ViewBindings.findChildViewById(rootView, id);
-      if (tvCapSummary == null) {
-        break missingId;
-      }
-
-      id = R.id.tvCrownCap;
-      TextView tvCrownCap = ViewBindings.findChildViewById(rootView, id);
-      if (tvCrownCap == null) {
-        break missingId;
-      }
-
-      id = R.id.tvDeviceAddress;
-      TextView tvDeviceAddress = ViewBindings.findChildViewById(rootView, id);
-      if (tvDeviceAddress == null) {
-        break missingId;
-      }
-
-      id = R.id.tvDeviceName;
-      TextView tvDeviceName = ViewBindings.findChildViewById(rootView, id);
-      if (tvDeviceName == null) {
-        break missingId;
-      }
-
-      id = R.id.tvForeheadCap;
-      TextView tvForeheadCap = ViewBindings.findChildViewById(rootView, id);
-      if (tvForeheadCap == null) {
-        break missingId;
-      }
-
-      id = R.id.tvIntervalLabel;
-      TextView tvIntervalLabel = ViewBindings.findChildViewById(rootView, id);
-      if (tvIntervalLabel == null) {
-        break missingId;
-      }
-
-      id = R.id.tvMotion;
-      TextView tvMotion = ViewBindings.findChildViewById(rootView, id);
-      if (tvMotion == null) {
-        break missingId;
-      }
-
-      id = R.id.tvStatus;
-      TextView tvStatus = ViewBindings.findChildViewById(rootView, id);
-      if (tvStatus == null) {
-        break missingId;
-      }
-
-      id = R.id.tvStrap;
-      TextView tvStrap = ViewBindings.findChildViewById(rootView, id);
-      if (tvStrap == null) {
-        break missingId;
-      }
-
-      id = R.id.tvTemp;
-      TextView tvTemp = ViewBindings.findChildViewById(rootView, id);
-      if (tvTemp == null) {
-        break missingId;
-      }
-
-      id = R.id.tvTof1;
-      TextView tvTof1 = ViewBindings.findChildViewById(rootView, id);
-      if (tvTof1 == null) {
-        break missingId;
-      }
-
-      id = R.id.tvTof2;
-      TextView tvTof2 = ViewBindings.findChildViewById(rootView, id);
-      if (tvTof2 == null) {
-        break missingId;
-      }
-
-      id = R.id.tvUpright;
-      TextView tvUpright = ViewBindings.findChildViewById(rootView, id);
-      if (tvUpright == null) {
-        break missingId;
-      }
-
-      id = R.id.tvWornStatus;
-      TextView tvWornStatus = ViewBindings.findChildViewById(rootView, id);
-      if (tvWornStatus == null) {
-        break missingId;
-      }
-
-      return new ActivityDashboardBinding((LinearLayout) rootView, btnBack, btnDisconnect, btnRead,
-          seekbarInterval, toolbar, tvAccel, tvCapSummary, tvCrownCap, tvDeviceAddress,
-          tvDeviceName, tvForeheadCap, tvIntervalLabel, tvMotion, tvStatus, tvStrap, tvTemp, tvTof1,
-          tvTof2, tvUpright, tvWornStatus);
+      return new ActivityDashboardBinding((ConstraintLayout) rootView, bottomNavigation,
+          binding_dashboardContainer, binding_logsContainer, toolbar);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

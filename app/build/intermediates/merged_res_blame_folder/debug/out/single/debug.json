@@ -1,11 +1,7 @@
 [
     {
-        "merged": "/home/shaalekh/.gradle/daemon/8.4/com.smarthelmet.ble.app-merged_res-34:/layout_item_device.xml.flat",
-        "source": "/home/shaalekh/.gradle/daemon/8.4/com.smarthelmet.ble.app-main-36:/layout/item_device.xml"
-    },
-    {
-        "merged": "/home/shaalekh/.gradle/daemon/8.4/com.smarthelmet.ble.app-merged_res-34:/layout_activity_scan.xml.flat",
-        "source": "/home/shaalekh/.gradle/daemon/8.4/com.smarthelmet.ble.app-main-36:/layout/activity_scan.xml"
+        "merged": "com.smarthelmet.ble.app-merged_res-34:/layout_fragment_logs.xml.flat",
+        "source": "com.smarthelmet.ble.app-main-36:/layout/fragment_logs.xml"
     },
     {
         "merged": "/home/shaalekh/.gradle/daemon/8.4/com.smarthelmet.ble.app-merged_res-34:/drawable_ic_launcher_foreground.xml.flat",
@@ -16,19 +12,43 @@
         "source": "/home/shaalekh/.gradle/daemon/8.4/com.smarthelmet.ble.app-main-36:/mipmap-anydpi-v26/ic_launcher.xml"
     },
     {
-        "merged": "/home/shaalekh/.gradle/daemon/8.4/com.smarthelmet.ble.app-merged_res-34:/drawable_ic_launcher_background.xml.flat",
-        "source": "/home/shaalekh/.gradle/daemon/8.4/com.smarthelmet.ble.app-main-36:/drawable/ic_launcher_background.xml"
+        "merged": "com.smarthelmet.ble.app-merged_res-34:/layout_item_log_file.xml.flat",
+        "source": "com.smarthelmet.ble.app-main-36:/layout/item_log_file.xml"
     },
     {
-        "merged": "/home/shaalekh/.gradle/daemon/8.4/com.smarthelmet.ble.app-merged_res-34:/layout_activity_dashboard.xml.flat",
-        "source": "/home/shaalekh/.gradle/daemon/8.4/com.smarthelmet.ble.app-main-36:/layout/activity_dashboard.xml"
+        "merged": "com.smarthelmet.ble.app-merged_res-34:/xml_file_paths.xml.flat",
+        "source": "com.smarthelmet.ble.app-main-36:/xml/file_paths.xml"
     },
     {
         "merged": "/home/shaalekh/.gradle/daemon/8.4/com.smarthelmet.ble.app-merged_res-34:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
         "source": "/home/shaalekh/.gradle/daemon/8.4/com.smarthelmet.ble.app-main-36:/mipmap-anydpi-v26/ic_launcher_round.xml"
     },
     {
+        "merged": "/home/shaalekh/.gradle/daemon/8.4/com.smarthelmet.ble.app-merged_res-34:/layout_item_device.xml.flat",
+        "source": "/home/shaalekh/.gradle/daemon/8.4/com.smarthelmet.ble.app-main-36:/layout/item_device.xml"
+    },
+    {
+        "merged": "/home/shaalekh/.gradle/daemon/8.4/com.smarthelmet.ble.app-merged_res-34:/layout_activity_scan.xml.flat",
+        "source": "/home/shaalekh/.gradle/daemon/8.4/com.smarthelmet.ble.app-main-36:/layout/activity_scan.xml"
+    },
+    {
+        "merged": "/home/shaalekh/.gradle/daemon/8.4/com.smarthelmet.ble.app-merged_res-34:/drawable_ic_launcher_background.xml.flat",
+        "source": "/home/shaalekh/.gradle/daemon/8.4/com.smarthelmet.ble.app-main-36:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.smarthelmet.ble.app-merged_res-34:/menu_bottom_nav_menu.xml.flat",
+        "source": "com.smarthelmet.ble.app-main-36:/menu/bottom_nav_menu.xml"
+    },
+    {
+        "merged": "/home/shaalekh/.gradle/daemon/8.4/com.smarthelmet.ble.app-merged_res-34:/layout_activity_dashboard.xml.flat",
+        "source": "/home/shaalekh/.gradle/daemon/8.4/com.smarthelmet.ble.app-main-36:/layout/activity_dashboard.xml"
+    },
+    {
         "merged": "com.smarthelmet.ble.app-merged_res-34:/layout_activity_dashboard.xml.flat",
         "source": "com.smarthelmet.ble.app-main-36:/layout/activity_dashboard.xml"
+    },
+    {
+        "merged": "com.smarthelmet.ble.app-merged_res-34:/layout_fragment_dashboard.xml.flat",
+        "source": "com.smarthelmet.ble.app-main-36:/layout/fragment_dashboard.xml"
     }
 ]

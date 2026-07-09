@@ -3180,6 +3180,7 @@ int id beginning 0x7f08005a
 int id bestChoice 0x7f08005b
 int id blocking 0x7f08005c
 int id bottom 0x7f08005d
+int id bottomNavigation 0x7f08020d
 int id bounce 0x7f08005e
 int id bounceBoth 0x7f08005f
 int id bounceEnd 0x7f080060
@@ -3227,6 +3228,7 @@ int id currentState 0x7f080089
 int id custom 0x7f08008a
 int id customPanel 0x7f08008b
 int id cut 0x7f08008c
+int id dashboardContainer 0x7f08020e
 int id date_picker_actions 0x7f08008d
 int id decelerate 0x7f08008e
 int id decelerateAndComplete 0x7f08008f
@@ -3331,6 +3333,7 @@ int id line3 0x7f0800f1
 int id linear 0x7f0800f2
 int id listMode 0x7f0800f3
 int id list_item 0x7f0800f4
+int id logsContainer 0x7f08020f
 int id m3_side_sheet 0x7f0800f5
 int id marquee 0x7f0800f6
 int id masked 0x7f0800f7
@@ -3391,6 +3394,8 @@ int id mtrl_picker_text_input_range_start 0x7f08012d
 int id mtrl_picker_title_text 0x7f08012e
 int id mtrl_view_tag_bottom_padding 0x7f08012f
 int id multiply 0x7f080130
+int id nav_dashboard 0x7f080210
+int id nav_logs 0x7f080211
 int id navigation_bar_item_active_indicator_view 0x7f080131
 int id navigation_bar_item_icon_container 0x7f080132
 int id navigation_bar_item_icon_view 0x7f080133
@@ -3452,6 +3457,7 @@ int id radio 0x7f08016a
 int id ratio 0x7f08016b
 int id rectangles 0x7f08016c
 int id recyclerDevices 0x7f08016d
+int id recyclerViewLogs 0x7f080212
 int id report_drawn 0x7f08016e
 int id reverseSawtooth 0x7f08016f
 int id right 0x7f080170
@@ -3574,10 +3580,13 @@ int id tvCapSummary 0x7f0801e4
 int id tvCrownCap 0x7f0801e5
 int id tvDeviceAddress 0x7f0801e6
 int id tvDeviceName 0x7f0801e7
+int id tvFileName 0x7f080213
+int id tvFileSize 0x7f080214
 int id tvForeheadCap 0x7f0801e8
 int id tvIntervalLabel 0x7f0801e9
 int id tvMotion 0x7f0801ea
 int id tvNoDevices 0x7f0801eb
+int id tvNoLogs 0x7f080215
 int id tvStatus 0x7f0801ec
 int id tvStrap 0x7f0801ed
 int id tvTemp 0x7f08020c
@@ -3740,9 +3749,12 @@ int layout design_navigation_menu 0x7f0b002a
 int layout design_navigation_menu_item 0x7f0b002b
 int layout design_text_input_end_icon 0x7f0b002c
 int layout design_text_input_start_icon 0x7f0b002d
+int layout fragment_dashboard 0x7f0b006e
+int layout fragment_logs 0x7f0b006f
 int layout ime_base_split_test_activity 0x7f0b002e
 int layout ime_secondary_split_test_activity 0x7f0b002f
 int layout item_device 0x7f0b0030
+int layout item_log_file 0x7f0b0070
 int layout m3_alert_dialog 0x7f0b0031
 int layout m3_alert_dialog_actions 0x7f0b0032
 int layout m3_alert_dialog_title 0x7f0b0033
@@ -3804,6 +3816,7 @@ int layout select_dialog_item_material 0x7f0b006a
 int layout select_dialog_multichoice_material 0x7f0b006b
 int layout select_dialog_singlechoice_material 0x7f0b006c
 int layout support_simple_spinner_dropdown_item 0x7f0b006d
+int menu bottom_nav_menu 0x7f120000
 int mipmap ic_launcher 0x7f0d0000
 int mipmap ic_launcher_round 0x7f0d0001
 int plurals mtrl_badge_content_description 0x7f0e0000
@@ -7213,3 +7226,4 @@ int styleable ViewTransition_upDuration 13
 int styleable ViewTransition_viewTransitionMode 14
 int[] styleable include { 0x7f030132 }
 int styleable include_constraintSet 0
+int xml file_paths 0x7f130000

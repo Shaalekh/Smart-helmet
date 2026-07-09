@@ -3181,6 +3181,7 @@ id beginning
 id bestChoice
 id blocking
 id bottom
+id bottomNavigation
 id bounce
 id bounceBoth
 id bounceEnd
@@ -3228,6 +3229,7 @@ id currentState
 id custom
 id customPanel
 id cut
+id dashboardContainer
 id date_picker_actions
 id decelerate
 id decelerateAndComplete
@@ -3332,6 +3334,7 @@ id line3
 id linear
 id listMode
 id list_item
+id logsContainer
 id m3_side_sheet
 id marquee
 id masked
@@ -3392,6 +3395,8 @@ id mtrl_picker_text_input_range_start
 id mtrl_picker_title_text
 id mtrl_view_tag_bottom_padding
 id multiply
+id nav_dashboard
+id nav_logs
 id navigation_bar_item_active_indicator_view
 id navigation_bar_item_icon_container
 id navigation_bar_item_icon_view
@@ -3453,6 +3458,7 @@ id radio
 id ratio
 id rectangles
 id recyclerDevices
+id recyclerViewLogs
 id report_drawn
 id reverseSawtooth
 id right
@@ -3575,10 +3581,13 @@ id tvCapSummary
 id tvCrownCap
 id tvDeviceAddress
 id tvDeviceName
+id tvFileName
+id tvFileSize
 id tvForeheadCap
 id tvIntervalLabel
 id tvMotion
 id tvNoDevices
+id tvNoLogs
 id tvStatus
 id tvStrap
 id tvTemp
@@ -3741,9 +3750,12 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout fragment_dashboard
+layout fragment_logs
 layout ime_base_split_test_activity
 layout ime_secondary_split_test_activity
 layout item_device
+layout item_log_file
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
 layout m3_alert_dialog_title
@@ -3805,6 +3817,7 @@ layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
+menu bottom_nav_menu
 mipmap ic_launcher
 mipmap ic_launcher_round
 plurals mtrl_badge_content_description
@@ -5291,3 +5304,4 @@ styleable ViewPager2 android_orientation
 styleable ViewStubCompat android_id android_layout android_inflatedId
 styleable ViewTransition android_id SharedValue SharedValueId clearsTag duration ifTagNotSet ifTagSet motionInterpolator motionTarget onStateTransition pathMotionArc setsTag transitionDisable upDuration viewTransitionMode
 styleable include constraintSet
+xml file_paths
